@@ -2,7 +2,10 @@
 
 from pathlib import Path
 
-import tomllib  # type: ignore[import-not-found,unused-ignore]
+try:
+    import tomllib  # type: ignore[import-not-found]
+except ModuleNotFoundError:  # Python < 3.11
+    import tomli as tomllib
 
 import llm_reliability
 
