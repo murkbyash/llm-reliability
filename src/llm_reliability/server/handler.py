@@ -13,7 +13,17 @@ from llm_reliability.normalization.normalizer import normalize_trace
 from llm_reliability.report.generator import render_html_report
 from llm_reliability.server.models import TraceRecord
 
-SERVER_VERSION = "0.1.0.dev0"
+
+def _server_version() -> str:
+    """Return the installed package version.
+
+    Imported lazily (not at module load time) because this module is
+    imported from within llm_reliability/__init__.py before __version__
+    is assigned there - a top-level import would be circular.
+    """
+    from llm_reliability import __version__
+
+    return __version__
 
 
 logger = logging.getLogger(__name__)
@@ -70,7 +80,7 @@ class DiagnosticHTTPRequestHandler(BaseHTTPRequestHandler):
             self._send_json(
                 {
                     "status": "healthy",
-                    "version": SERVER_VERSION,
+                    "version": _server_version(),
                     "traces_count": len(records),
                 }
             )
@@ -263,7 +273,7 @@ class DiagnosticHTTPRequestHandler(BaseHTTPRequestHandler):
 </head>
 <body>
     <div class="container">
-        <h1>🔍 LLM Reliability Visualizer <span class="badge">v{SERVER_VERSION}</span></h1>
+        <h1>🔍 LLM Reliability Visualizer <span class="badge">v{_server_version()}</span></h1>
         <p>Zero-cloud local observability server is running and ready to ingest execution traces.</p>
 
 

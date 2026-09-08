@@ -7,13 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-09-08
+
 ### Added
 - Automated changelog drafting and release note generation via Release Drafter.
 - Version bumping automation script (`scripts/bump_version.py`).
-
-## [0.1.0] - 2026-08-31
-
-### Added
 - **Core Data Model & Trace Normalization**:
   - Strongly typed Pydantic v2 execution and diagnostic models (`Span`, `Run`, `Trace`, `Diagnosis`, `Hypothesis`, `Evidence`, `Metric`, `Recommendation`).
   - Multi-format ingestion normalizer (`load_trace`, `normalize_trace`, `parse_timestamp`) supporting standard schemas, OpenInference, OpenLLMetry, Arize Phoenix, and LangSmith nested run trees.
@@ -61,3 +59,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Multi-stage non-root container distribution (`Dockerfile`, `.dockerignore`, `.github/workflows/docker.yml`).
   - OIDC Trusted Publishing workflows for TestPyPI and Production PyPI with PEP 740 provenance attestations.
   - Pre-commit hooks configuration and developer `Makefile`.
+
+### Fixed
+- Python 3.10 compatibility: `tomllib` is stdlib-only from 3.11+; added a `tomli` fallback so the packaging metadata test collects on every supported interpreter.
+- CI test matrix: three tests depended on files that are correctly gitignored on a fresh checkout (`MASTER_CONTEXT.md`, a pre-built wheel), so they only passed locally; fixed to build a wheel on demand and dropped an assertion on an internal-only tracking document.
+- Security workflow: resolved a Bandit `B110` (try/except/pass) finding in the CLI's best-effort stdout encoding fix, and a real `setuptools` CVE (`PYSEC-2026-3447`) that `pip-audit` caught in the CI environment.
+- Removed a duplicated version string in the local dashboard server (`server/handler.py`) that could silently drift from the package version; it now reads `__version__` directly.
+
+### Changed
+- Populated previously empty governance files (`CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SUPPORT.md`).
+- Added an example diagnostic report screenshot to the README.

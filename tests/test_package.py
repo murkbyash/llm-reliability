@@ -15,7 +15,7 @@ def test_package_import_and_version() -> None:
     assert hasattr(llm_reliability, "__version__")
     assert isinstance(llm_reliability.__version__, str)
     assert len(llm_reliability.__version__) > 0
-    assert llm_reliability.__version__ == "0.1.0.dev0"
+    assert llm_reliability.__version__ == "0.1.0"
 
 
 def test_package_all_export() -> None:
@@ -77,7 +77,7 @@ def test_pyproject_configuration(project_root: Path) -> None:
     # Project metadata
     project = config.get("project", {})
     assert project.get("name") == "llm-reliability"
-    assert project.get("version") == "0.1.0.dev0"
+    assert project.get("version") == "0.1.0"
     assert project.get("requires-python") == ">=3.10"
     assert project.get("license", {}).get("text") == "Apache-2.0"
     assert "pydantic>=2.0.0" in project.get("dependencies", [])

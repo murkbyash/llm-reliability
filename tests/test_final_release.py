@@ -41,7 +41,7 @@ class TestReleaseCandidateIntegrity:
         assert __version__ is not None
         assert isinstance(__version__, str)
         assert len(__version__) > 0
-        assert __version__ == "0.1.0.dev0"
+        assert __version__ == "0.1.0"
 
     def test_end_to_end_reliability_pipeline(self) -> None:
         """Exercise full end-to-end lifecycle across all 35 architectural subsystems."""

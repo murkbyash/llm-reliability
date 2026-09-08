@@ -96,7 +96,7 @@ class TestPackagingAndPublishPipeline:
         content = pyproject_path.read_text(encoding="utf-8")
 
         assert 'name = "llm-reliability"' in content
-        assert 'version = "0.1.0.dev0"' in content
+        assert 'version = "0.1.0"' in content
         assert (
             'license = { text = "Apache-2.0" }' in content
             or 'license = "Apache-2.0"' in content
