@@ -1,5 +1,7 @@
 """Automated tests validating packaging metadata, wheel contents, and PyPI/TestPyPI workflows."""
 
+import subprocess
+import sys
 import zipfile
 from pathlib import Path
 
@@ -43,10 +45,22 @@ class TestPackagingAndPublishPipeline:
         assert "twine check --strict" in content
         assert "smoke-test:" in content
 
-    def test_wheel_archive_contents(self, project_root: Path) -> None:
+    def test_wheel_archive_contents(self, project_root: Path, tmp_path: Path) -> None:
         dist_dir = project_root / "dist"
-        wheels = list(dist_dir.glob("*.whl"))
-        assert len(wheels) > 0, "No built wheel files found in dist/"
+        wheels = list(dist_dir.glob("*.whl")) if dist_dir.is_dir() else []
+
+        if not wheels:
+            # No pre-built wheel on disk (e.g. a fresh CI checkout) - build one
+            # into a scratch directory rather than requiring a prior build step.
+            subprocess.run(
+                [sys.executable, "-m", "build", "--wheel", "--outdir", str(tmp_path)],
+                cwd=project_root,
+                check=True,
+                capture_output=True,
+            )
+            wheels = list(tmp_path.glob("*.whl"))
+
+        assert len(wheels) > 0, "No built wheel files found"
 
         wheel_file = wheels[0]
         with zipfile.ZipFile(wheel_file, "r") as z:

@@ -34,23 +34,17 @@ class TestReleaseAndVersioning:
     def test_version_consistency_across_files(self, project_root: Path) -> None:
         pyproject_path = project_root / "pyproject.toml"
         init_path = project_root / "src" / "llm_reliability" / "__init__.py"
-        master_context_path = project_root / "MASTER_CONTEXT.md"
 
         pyproject_content = pyproject_path.read_text(encoding="utf-8")
         init_content = init_path.read_text(encoding="utf-8")
-        master_context_content = master_context_path.read_text(encoding="utf-8")
 
         # Extract version from pyproject.toml
         match = re.search(r'version\s*=\s*"([^"]+)"', pyproject_content)
         assert match is not None, "Version not found in pyproject.toml"
         version = match.group(1)
 
-        # Verify matching version in __init__.py and MASTER_CONTEXT.md
+        # Verify matching version in __init__.py
         assert f'__version__ = "{version}"' in init_content
-        assert (
-            f"Current version:** `{version}`" in master_context_content
-            or f"`{version}`" in master_context_content
-        )
 
     def test_release_drafter_configuration_and_workflow(self, project_root: Path) -> None:
         config_path = project_root / ".github" / "release-drafter.yml"

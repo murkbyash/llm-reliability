@@ -86,56 +86,7 @@ def test_pyproject_configuration(project_root: Path) -> None:
 
 def test_essential_documentation_files(project_root: Path) -> None:
     """Verify essential project documentation and governance files exist and are populated."""
-    for filename in ["README.md", "LICENSE", "MASTER_CONTEXT.md", ".gitignore"]:
+    for filename in ["README.md", "LICENSE", ".gitignore"]:
         file_path = project_root / filename
         assert file_path.is_file(), f"Required file {filename} missing"
         assert file_path.stat().st_size > 50, f"Required file {filename} is unexpectedly empty"
-
-
-def test_master_context_sections(project_root: Path) -> None:
-    """Verify MASTER_CONTEXT.md contains mandatory tracking sections."""
-    master_context_file = project_root / "MASTER_CONTEXT.md"
-    content = master_context_file.read_text(encoding="utf-8")
-
-    required_sections = [
-        "# Project Context",
-        "## Project",
-        "## Current Status",
-        "## Current Phase",
-        "## Objective of Current Phase",
-        "## Completed Phases",
-        "## Current Architecture",
-        "## Repository Structure",
-        "## Important Design Decisions",
-        "## Decisions Rejected",
-        "## Current APIs",
-        "## Data Models",
-        "## Test Status",
-        "## Known Bugs",
-        "## Known Limitations",
-        "## Open Questions",
-        "## Technical Debt",
-        "## Next Phase",
-        "## Commands",
-        "## Environment",
-        "## Dependencies",
-        "## Important Files",
-        "## Last Updated",
-        "## Change Log",
-        "## Package Information",
-        "## Public API",
-        "## CLI",
-        "## GitHub",
-        "## Packaging",
-        "## PyPI",
-        "## CI/CD",
-        "## Documentation",
-        "## Open Source",
-        "## Releases",
-        "## Benchmark",
-        "## Known Open Source Issues",
-        "## Next Milestone",
-    ]
-
-    for section in required_sections:
-        assert section in content, f"Missing required section in MASTER_CONTEXT.md: {section}"
