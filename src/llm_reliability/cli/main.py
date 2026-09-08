@@ -335,7 +335,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     if hasattr(sys.stdout, "reconfigure"):
         try:
             sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-        except Exception:
+        except Exception:  # nosec B110
+            # Best-effort UTF-8 fix; falls back to the stream's default encoding.
             pass
 
     parser = build_parser()

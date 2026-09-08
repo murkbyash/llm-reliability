@@ -36,7 +36,9 @@ class TestGovernanceFiles:
         for filename in GOVERNANCE_FILES:
             content = (project_root / filename).read_text(encoding="utf-8").lower()
             for token in forbidden:
-                assert token.lower() not in content, f"{filename} contains unresolved placeholder '{token}'"
+                assert token.lower() not in content, (
+                    f"{filename} contains unresolved placeholder '{token}'"
+                )
 
     def test_contact_email_consistent_across_governance_docs(self, project_root: Path) -> None:
         contact_email = "ashishuike8@gmail.com"
