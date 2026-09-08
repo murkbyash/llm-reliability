@@ -69,3 +69,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Populated previously empty governance files (`CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SUPPORT.md`).
 - Added an example diagnostic report screenshot to the README.
+- Published to PyPI via trusted publishing (OIDC) - `pip install llm-reliability` now installs a real release.

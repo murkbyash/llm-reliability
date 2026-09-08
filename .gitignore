@@ -57,6 +57,7 @@ Thumbs.db
 
 # Internal planning notes (not for public repo)
 MASTER_CONTEXT.md
+INTERVIEW_PREP.md
 
 # Generated report artifacts (regenerate via examples/07_generate_interactive_html_report.py)
 /*.html

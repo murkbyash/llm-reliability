@@ -1,6 +1,7 @@
 # LLM Reliability Analyzer
 
 [![CI](https://github.com/murkbyash/llm-reliability/actions/workflows/ci.yml/badge.svg)](https://github.com/murkbyash/llm-reliability/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/llm-reliability.svg)](https://pypi.org/project/llm-reliability/)
 [![Coverage](https://img.shields.io/badge/coverage-90%25-brightgreen.svg)](https://github.com/murkbyash/llm-reliability)
 [![Tests](https://img.shields.io/badge/tests-267%20passed-brightgreen.svg)](tests/)
 [![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue)](https://www.python.org/downloads/)
