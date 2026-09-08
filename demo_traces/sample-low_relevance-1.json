@@ -1,0 +1,58 @@
+{
+  "trace_id": "low_relevance-1",
+  "name": null,
+  "runs": [
+    {
+      "run_id": "run-84c88efc",
+      "trace_id": "low_relevance-1",
+      "name": null,
+      "spans": [
+        {
+          "span_id": "span-ret-c9fcf7",
+          "parent_span_id": null,
+          "name": "vector_search",
+          "kind": "retrieval",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": {
+            "query": "how to deploy kubernetes cluster",
+            "documents": [
+              {
+                "doc_id": "doc-irrelevant",
+                "content": "Ancient pottery techniques used clay from riverbanks in Mesopotamia.",
+                "score": 0.25,
+                "rank": null,
+                "metadata": {}
+              }
+            ],
+            "top_k": null,
+            "retriever_name": null,
+            "latency_ms": null,
+            "metadata": {}
+          },
+          "tool_call": null,
+          "tool_result": null
+        }
+      ],
+      "input_query": null,
+      "final_response": {
+        "text": "Pottery in Mesopotamia was built with riverbank clay.",
+        "grounded": null,
+        "confidence": null,
+        "metadata": {}
+      },
+      "metadata": {},
+      "start_time": null,
+      "end_time": null,
+      "duration_ms": null
+    }
+  ],
+  "metadata": {},
+  "created_at": null
+}

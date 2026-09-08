@@ -1,0 +1,154 @@
+{
+  "trace_id": "agent_loop-1",
+  "name": null,
+  "runs": [
+    {
+      "run_id": "run-cf79e57e",
+      "trace_id": "agent_loop-1",
+      "name": null,
+      "spans": [
+        {
+          "span_id": "span-tool-0",
+          "parent_span_id": null,
+          "name": "web_search",
+          "kind": "tool",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": null,
+          "tool_call": {
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "weather today"
+            },
+            "call_id": null
+          },
+          "tool_result": {
+            "tool_name": "web_search",
+            "output": {
+              "status": "retry required"
+            },
+            "error": null,
+            "call_id": null,
+            "status": "success",
+            "latency_ms": null
+          }
+        },
+        {
+          "span_id": "span-tool-1",
+          "parent_span_id": null,
+          "name": "web_search",
+          "kind": "tool",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": null,
+          "tool_call": {
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "weather today"
+            },
+            "call_id": null
+          },
+          "tool_result": {
+            "tool_name": "web_search",
+            "output": {
+              "status": "retry required"
+            },
+            "error": null,
+            "call_id": null,
+            "status": "success",
+            "latency_ms": null
+          }
+        },
+        {
+          "span_id": "span-tool-2",
+          "parent_span_id": null,
+          "name": "web_search",
+          "kind": "tool",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": null,
+          "tool_call": {
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "weather today"
+            },
+            "call_id": null
+          },
+          "tool_result": {
+            "tool_name": "web_search",
+            "output": {
+              "status": "retry required"
+            },
+            "error": null,
+            "call_id": null,
+            "status": "success",
+            "latency_ms": null
+          }
+        },
+        {
+          "span_id": "span-tool-3",
+          "parent_span_id": null,
+          "name": "web_search",
+          "kind": "tool",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": null,
+          "tool_call": {
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "weather today"
+            },
+            "call_id": null
+          },
+          "tool_result": {
+            "tool_name": "web_search",
+            "output": {
+              "status": "retry required"
+            },
+            "error": null,
+            "call_id": null,
+            "status": "success",
+            "latency_ms": null
+          }
+        }
+      ],
+      "input_query": null,
+      "final_response": {
+        "text": "Agent exceeded execution limit.",
+        "grounded": null,
+        "confidence": null,
+        "metadata": {}
+      },
+      "metadata": {},
+      "start_time": null,
+      "end_time": null,
+      "duration_ms": null
+    }
+  ],
+  "metadata": {},
+  "created_at": null
+}

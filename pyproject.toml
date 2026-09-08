@@ -1,0 +1,105 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llm-reliability"
+version = "0.1.0.dev0"
+description = "Evidence-based reliability analyzer and root-cause diagnosis engine for LLM, RAG, and Agent systems."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+authors = [
+    { name = "LLM Reliability Contributors" }
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+    "build>=1.2.0",
+]
+
+[project.scripts]
+llm-reliability = "llm_reliability.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/murkbyash/llm-reliability"
+Documentation = "https://github.com/murkbyash/llm-reliability#readme"
+Repository = "https://github.com/murkbyash/llm-reliability.git"
+Issues = "https://github.com/murkbyash/llm-reliability/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llm_reliability"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+
+[tool.coverage.run]
+source = ["llm_reliability"]
+branch = true
+omit = ["tests/*", "examples/*", "scripts/*"]
+
+[tool.coverage.report]
+fail_under = 89
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
+
+[tool.bandit]
+targets = ["src/llm_reliability"]
+exclude_dirs = ["tests", "examples", ".venv", "build", "dist"]
+skips = ["B101", "B105"]
+
+
+

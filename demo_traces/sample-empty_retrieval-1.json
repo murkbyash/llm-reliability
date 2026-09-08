@@ -1,0 +1,50 @@
+{
+  "trace_id": "empty_retrieval-1",
+  "name": null,
+  "runs": [
+    {
+      "run_id": "run-d98f8862",
+      "trace_id": "empty_retrieval-1",
+      "name": null,
+      "spans": [
+        {
+          "span_id": "span-ret-c267c1",
+          "parent_span_id": null,
+          "name": "vector_search",
+          "kind": "retrieval",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": {
+            "query": "rare scientific constant zeta",
+            "documents": [],
+            "top_k": null,
+            "retriever_name": null,
+            "latency_ms": null,
+            "metadata": {}
+          },
+          "tool_call": null,
+          "tool_result": null
+        }
+      ],
+      "input_query": null,
+      "final_response": {
+        "text": "I could not find any information about that.",
+        "grounded": null,
+        "confidence": null,
+        "metadata": {}
+      },
+      "metadata": {},
+      "start_time": null,
+      "end_time": null,
+      "duration_ms": null
+    }
+  ],
+  "metadata": {},
+  "created_at": null
+}

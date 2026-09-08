@@ -1,0 +1,79 @@
+{
+  "trace_id": "duplicate_chunks-1",
+  "name": null,
+  "runs": [
+    {
+      "run_id": "run-cdbb9406",
+      "trace_id": "duplicate_chunks-1",
+      "name": null,
+      "spans": [
+        {
+          "span_id": "span-ret-5a7624",
+          "parent_span_id": null,
+          "name": "retrieval",
+          "kind": "retrieval",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": {
+            "query": "what is oauth2",
+            "documents": [
+              {
+                "doc_id": "doc-0",
+                "content": "OAuth 2.0 is an authorization framework that enables applications to obtain limited access.",
+                "score": 0.92,
+                "rank": null,
+                "metadata": {}
+              },
+              {
+                "doc_id": "doc-1",
+                "content": "OAuth 2.0 is an authorization framework that enables applications to obtain limited access.",
+                "score": 0.92,
+                "rank": null,
+                "metadata": {}
+              },
+              {
+                "doc_id": "doc-2",
+                "content": "OAuth 2.0 is an authorization framework that enables applications to obtain limited access.",
+                "score": 0.92,
+                "rank": null,
+                "metadata": {}
+              },
+              {
+                "doc_id": "doc-3",
+                "content": "OAuth 2.0 is an authorization framework that enables applications to obtain limited access.",
+                "score": 0.92,
+                "rank": null,
+                "metadata": {}
+              }
+            ],
+            "top_k": null,
+            "retriever_name": null,
+            "latency_ms": null,
+            "metadata": {}
+          },
+          "tool_call": null,
+          "tool_result": null
+        }
+      ],
+      "input_query": null,
+      "final_response": {
+        "text": "OAuth 2.0 is an authorization framework for limited access.",
+        "grounded": null,
+        "confidence": null,
+        "metadata": {}
+      },
+      "metadata": {},
+      "start_time": null,
+      "end_time": null,
+      "duration_ms": null
+    }
+  ],
+  "metadata": {},
+  "created_at": null
+}

@@ -1,0 +1,46 @@
+{
+  "trace_id": "llm_api_error-1",
+  "name": null,
+  "runs": [
+    {
+      "run_id": "run-b13d34ac",
+      "trace_id": "llm_api_error-1",
+      "name": null,
+      "spans": [
+        {
+          "span_id": "span-llm-b0b974",
+          "parent_span_id": null,
+          "name": "llm_call",
+          "kind": "llm",
+          "status": "error",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": "RateLimitError: 429 Too Many Requests from OpenAI API",
+          "llm_call": {
+            "model": "gpt-4o",
+            "prompt": "Generate comprehensive financial plan",
+            "response": null,
+            "temperature": null,
+            "token_usage": null,
+            "latency_ms": null,
+            "raw_parameters": {}
+          },
+          "retrieval": null,
+          "tool_call": null,
+          "tool_result": null
+        }
+      ],
+      "input_query": null,
+      "final_response": null,
+      "metadata": {},
+      "start_time": null,
+      "end_time": null,
+      "duration_ms": null
+    }
+  ],
+  "metadata": {},
+  "created_at": null
+}

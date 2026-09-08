@@ -1,0 +1,72 @@
+name: 'LLM Reliability Gatekeeper'
+description: 'Enforce reliability SLAs, failure rate thresholds, and regression gates in CI/CD pull requests.'
+author: 'Google DeepMind / Ashish Uike'
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  candidate_trace:
+    description: 'Path to candidate execution trace file (JSON, JSONL, OTel)'
+    required: true
+  baseline_trace:
+    description: 'Optional path to baseline execution trace file for comparative regression evaluation'
+    required: false
+    default: ''
+  max_failure_rate:
+    description: 'Maximum allowable failure rate (0.0 to 1.0)'
+    required: false
+    default: '0.0'
+  max_regression_score:
+    description: 'Maximum allowable regression score (0.0 to 1.0)'
+    required: false
+    default: '0.0'
+  max_latency_p95_ms:
+    description: 'Maximum permissible 95th percentile latency in milliseconds'
+    required: false
+    default: ''
+  min_grounding_score:
+    description: 'Minimum required average grounding / faithfulness score (0.0 to 1.0)'
+    required: false
+    default: ''
+  disallowed_categories:
+    description: 'Comma-separated list of prohibited failure categories (e.g. HALLUCINATION,AGENT_LOOP)'
+    required: false
+    default: ''
+  policy_file:
+    description: 'Optional path to custom diagnostic policy file (YAML/JSON)'
+    required: false
+    default: ''
+  comment_on_pr:
+    description: 'Whether to post markdown comment to PR'
+    required: false
+    default: 'true'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run LLM Reliability Gate
+      shell: bash
+      run: |
+        CMD="llm-reliability gate '${{ inputs.candidate_trace }}' \
+          --max-failure-rate '${{ inputs.max_failure_rate }}' \
+          --max-regression '${{ inputs.max_regression_score }}' \
+          --comment-file pr_reliability_comment.md"
+
+        if [ -n "${{ inputs.baseline_trace }}" ]; then
+          CMD="$CMD --baseline '${{ inputs.baseline_trace }}'"
+        fi
+        if [ -n "${{ inputs.max_latency_p95_ms }}" ]; then
+          CMD="$CMD --max-latency '${{ inputs.max_latency_p95_ms }}'"
+        fi
+        if [ -n "${{ inputs.min_grounding_score }}" ]; then
+          CMD="$CMD --min-grounding '${{ inputs.min_grounding_score }}'"
+        fi
+        if [ -n "${{ inputs.disallowed_categories }}" ]; then
+          CMD="$CMD --disallowed-categories '${{ inputs.disallowed_categories }}'"
+        fi
+        if [ -n "${{ inputs.policy_file }}" ]; then
+          CMD="$CMD --policy '${{ inputs.policy_file }}'"
+        fi
+
+        eval $CMD

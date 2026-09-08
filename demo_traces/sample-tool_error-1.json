@@ -1,0 +1,56 @@
+{
+  "trace_id": "tool_error-1",
+  "name": null,
+  "runs": [
+    {
+      "run_id": "run-d1f8973e",
+      "trace_id": "tool_error-1",
+      "name": null,
+      "spans": [
+        {
+          "span_id": "span-tool-a73b89",
+          "parent_span_id": null,
+          "name": "database_query",
+          "kind": "tool",
+          "status": "error",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": "DatabaseConnectionError: Connection timeout to primary replica",
+          "llm_call": null,
+          "retrieval": null,
+          "tool_call": {
+            "tool_name": "database_query",
+            "arguments": {
+              "sql": "SELECT * FROM users;"
+            },
+            "call_id": null
+          },
+          "tool_result": {
+            "tool_name": "database_query",
+            "output": null,
+            "error": "DatabaseConnectionError: Connection timeout to primary replica",
+            "call_id": null,
+            "status": "error",
+            "latency_ms": null
+          }
+        }
+      ],
+      "input_query": null,
+      "final_response": {
+        "text": "An error occurred while querying the user database.",
+        "grounded": null,
+        "confidence": null,
+        "metadata": {}
+      },
+      "metadata": {},
+      "start_time": null,
+      "end_time": null,
+      "duration_ms": null
+    }
+  ],
+  "metadata": {},
+  "created_at": null
+}

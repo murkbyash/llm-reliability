@@ -1,0 +1,58 @@
+{
+  "trace_id": "hallucination-1",
+  "name": null,
+  "runs": [
+    {
+      "run_id": "run-23b9a6e4",
+      "trace_id": "hallucination-1",
+      "name": null,
+      "spans": [
+        {
+          "span_id": "span-ret-86d498",
+          "parent_span_id": null,
+          "name": "retrieval",
+          "kind": "retrieval",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": {
+            "query": "how many moons does mars have",
+            "documents": [
+              {
+                "doc_id": "doc-mars",
+                "content": "Mars has two small moons, Phobos and Deimos.",
+                "score": 0.95,
+                "rank": null,
+                "metadata": {}
+              }
+            ],
+            "top_k": null,
+            "retriever_name": null,
+            "latency_ms": null,
+            "metadata": {}
+          },
+          "tool_call": null,
+          "tool_result": null
+        }
+      ],
+      "input_query": null,
+      "final_response": {
+        "text": "Mars has zero moons and cannot support natural satellites.",
+        "grounded": null,
+        "confidence": null,
+        "metadata": {}
+      },
+      "metadata": {},
+      "start_time": null,
+      "end_time": null,
+      "duration_ms": null
+    }
+  ],
+  "metadata": {},
+  "created_at": null
+}

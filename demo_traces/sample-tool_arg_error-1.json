@@ -1,0 +1,47 @@
+{
+  "trace_id": "tool_arg_error-1",
+  "name": null,
+  "runs": [
+    {
+      "run_id": "run-e5eaf2a1",
+      "trace_id": "tool_arg_error-1",
+      "name": null,
+      "spans": [
+        {
+          "span_id": "span-tool-0e7a0d",
+          "parent_span_id": null,
+          "name": "send_payment",
+          "kind": "tool",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": null,
+          "tool_call": {
+            "tool_name": "send_payment",
+            "arguments": "{\"amount\": null, \"broken_json\": ",
+            "call_id": null
+          },
+          "tool_result": null
+        }
+      ],
+      "input_query": null,
+      "final_response": {
+        "text": "Payment failed due to invalid arguments.",
+        "grounded": null,
+        "confidence": null,
+        "metadata": {}
+      },
+      "metadata": {},
+      "start_time": null,
+      "end_time": null,
+      "duration_ms": null
+    }
+  ],
+  "metadata": {},
+  "created_at": null
+}

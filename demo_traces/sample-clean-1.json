@@ -1,0 +1,88 @@
+{
+  "trace_id": "clean-1",
+  "name": null,
+  "runs": [
+    {
+      "run_id": "run-e871c91e",
+      "trace_id": "clean-1",
+      "name": null,
+      "spans": [
+        {
+          "span_id": "span-ret-78bb3d",
+          "parent_span_id": null,
+          "name": "retrieval",
+          "kind": "retrieval",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": null,
+          "retrieval": {
+            "query": "python 3.13 features",
+            "documents": [
+              {
+                "doc_id": "doc-1",
+                "content": "Python 3.13 introduces experimental free-threaded execution mode.",
+                "score": 0.96,
+                "rank": null,
+                "metadata": {}
+              }
+            ],
+            "top_k": null,
+            "retriever_name": null,
+            "latency_ms": null,
+            "metadata": {}
+          },
+          "tool_call": null,
+          "tool_result": null
+        },
+        {
+          "span_id": "span-llm-c371ca",
+          "parent_span_id": null,
+          "name": "llm_generate",
+          "kind": "llm",
+          "status": "success",
+          "start_time": null,
+          "end_time": null,
+          "duration_ms": null,
+          "attributes": {},
+          "events": [],
+          "error_message": null,
+          "llm_call": {
+            "model": "gpt-4o",
+            "prompt": "Summarize Python 3.13",
+            "response": "Python 3.13 introduces experimental free-threaded execution mode.",
+            "temperature": null,
+            "token_usage": {
+              "prompt_tokens": 40,
+              "completion_tokens": 15,
+              "total_tokens": 55,
+              "cost_usd": null
+            },
+            "latency_ms": null,
+            "raw_parameters": {}
+          },
+          "retrieval": null,
+          "tool_call": null,
+          "tool_result": null
+        }
+      ],
+      "input_query": null,
+      "final_response": {
+        "text": "Python 3.13 introduces experimental free-threaded execution mode.",
+        "grounded": null,
+        "confidence": null,
+        "metadata": {}
+      },
+      "metadata": {},
+      "start_time": null,
+      "end_time": null,
+      "duration_ms": null
+    }
+  ],
+  "metadata": {},
+  "created_at": null
+}
