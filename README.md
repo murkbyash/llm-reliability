@@ -111,7 +111,17 @@ Execution Trace ──▶ Normalization ──▶ Multi-Domain Analysis ──�
 
 ---
 
-## 4. Installation & Quickstart
+## 4. Example Output
+
+Running `llm-reliability diagnose trace.json --format html --output report.html` on a trace where an agent got stuck calling the same tool repeatedly produces a self-contained, offline HTML dashboard:
+
+![Diagnostic report showing an AGENT_LOOP root cause with 100% confidence, a waterfall timeline of repeated tool calls, evidence chain, and prioritized remediation](docs/images/diagnostic-report-demo.png)
+
+No external CDN, no server — one HTML file with the waterfall timeline, ranked hypotheses with evidence, prioritized remediation, and the full metrics table baked in.
+
+---
+
+## 5. Installation & Quickstart
 
 ### Prerequisites
 - Python 3.10, 3.11, 3.12, or 3.13
@@ -172,7 +182,7 @@ for rec in diagnosis.recommendations:
 
 ---
 
-## 5. Live Tracing & Streaming Latency Profiling
+## 6. Live Tracing & Streaming Latency Profiling
 
 ```python
 from llm_reliability import get_tracer, trace_llm, trace_tool, StreamingProfiler, wrap_stream
@@ -213,7 +223,7 @@ for chunk in wrapped:
 
 ---
 
-## 6. Diagnostic Benchmark Accuracy
+## 7. Diagnostic Benchmark Accuracy
 
 Evaluated across 45 ground-truth labeled benchmark scenarios spanning 9 taxonomy categories:
 
@@ -231,7 +241,7 @@ Evaluated across 45 ground-truth labeled benchmark scenarios spanning 9 taxonomy
 
 ---
 
-## 7. Documentation Guides
+## 8. Documentation Guides
 
 - [Getting Started](docs/getting-started.md)
 - [Architecture & Philosophy](docs/architecture.md)
@@ -255,6 +265,6 @@ Evaluated across 45 ground-truth labeled benchmark scenarios spanning 9 taxonomy
 
 ---
 
-## 8. License
+## 9. License
 
 This project is licensed under the [Apache License, Version 2.0](LICENSE).
