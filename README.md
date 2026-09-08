@@ -225,7 +225,7 @@ for chunk in wrapped:
 
 ## 7. Diagnostic Benchmark Accuracy
 
-Evaluated across 45 ground-truth labeled benchmark scenarios spanning 9 taxonomy categories:
+Evaluated across 45 ground-truth labeled benchmark scenarios spanning 9 taxonomy categories. **Note:** these are synthetic traces generated (and labeled) by the tool's own `SyntheticTraceGenerator` — the benchmark is a regression suite confirming the rule engine correctly classifies clean, unambiguous examples of each failure type, not an evaluation against real-world production traffic. Run it yourself with `make benchmark` or `run_benchmark()`.
 
 | Failure Category | Precision | Recall | F1 Score | Accuracy |
 | :--- | :--- | :--- | :--- | :--- |
